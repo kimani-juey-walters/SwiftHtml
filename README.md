@@ -49,7 +49,7 @@ let result = html {
 print(result)
 ```
 
-Produces the following result, minus the formatting (generates a single line of html currently).
+Produces the following result
 
 ```html
 <!DOCTYPE html>
@@ -64,11 +64,17 @@ Produces the following result, minus the formatting (generates a single line of 
     <body>
         <div class="wrapper">
             <section class="about" id="about">
-                <h2><span>##</span>About Section</h2>
+                <h2>
+                    <span>##</span>
+                    About Section
+                </h2>
                 <p>The about section.</p>
             </section>
             <section class="rules" id="rules">
-                <h2><span>##</span>Rules Section</h2>
+                <h2>
+                    <span>##</span>
+                    Rules Section
+                </h2>
                 <p>The rules section.</p>
             </section>
             <a href="https://example.com/">Home page</a>

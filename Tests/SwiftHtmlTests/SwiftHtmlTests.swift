@@ -39,7 +39,10 @@ import Foundation
                 <body>
                     <div class="wrapper">
                         <section>
-                            <h2><span>#</span>A Section Title</h2>
+                            <h2>
+                                <span>#</span>
+                                A Section Title
+                            </h2>
                             <p>Some example text.</p>
                         </section>
                         <a href="https://example.com/">example site</a>
@@ -87,7 +90,10 @@ import Foundation
                 <body>
                     <div class="wrapper">
                         <section>
-                            <h2><span>#</span>A Section Title</h2>
+                            <h2>
+                                <span>#</span>
+                                A Section Title
+                            </h2>
                             <p>Some example text.</p>
                         </section>
                         <a href="https://example.com/">example site</a>
@@ -152,11 +158,17 @@ import Foundation
                 <body>
                     <div class="wrapper">
                         <section class="about" id="about">
-                            <h2><span>##</span>About Section</h2>
+                            <h2>
+                                <span>##</span>
+                                About Section
+                            </h2>
                             <p>The about section.</p>
                         </section>
                         <section class="rules" id="rules">
-                            <h2><span>##</span>Rules Section</h2>
+                            <h2>
+                                <span>##</span>
+                                Rules Section
+                            </h2>
                             <p>The rules section.</p>
                         </section>
                         <a href="https://example.com/">Home page</a>
@@ -170,7 +182,6 @@ import Foundation
     
     for (result, expected) in examples {
         let a = String(describing: result)
-        let b = expected.split(separator: "\n").map{ $0.trimmingCharacters(in: .whitespaces) }.joined()
-        #expect(a == b)
+        #expect(a == expected)
     }
 }

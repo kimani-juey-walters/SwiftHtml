@@ -4,6 +4,6 @@ public enum NodeContent: CustomStringConvertible {
     case child(Node)
     
     public var description: String {
-        if case .child(let node) = self { "<!DOCTYPE html>\(node)" } else { "" }
+        if case .child(let node) = self { "<!DOCTYPE html>\n\(node)" } else { "" }
     }
 }
