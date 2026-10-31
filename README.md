@@ -1,6 +1,6 @@
 
-# swift-html (Work in Progress)
-A Swift DSL for HTML that offers a few variations for adding attributes as seen below.
+# swift-html
+An experimental Swift DSL for HTML that offers a few variations for adding attributes as seen below.
 
 ```swift
 import SwiftHtml
@@ -82,4 +82,5 @@ Produces the following result
         </div>
     </body>
 </html>
+
 ```
