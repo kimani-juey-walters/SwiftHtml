@@ -9,6 +9,11 @@ public struct Tag: TextOutputStreamable {
     }
     
     func write(to target: inout some TextOutputStream, dept: Int) {
+        if name == "html" {
+            target.write("<!DOCTYPE html>")
+            target.write("\n")
+        }
+        
         target.write("<\(name)", dept: dept)
 
         for attr in attributes.sorted(by: { $0.key < $1.key }) {

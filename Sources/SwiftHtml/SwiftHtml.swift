@@ -1,846 +1,246 @@
-func element(_ name: String, attributes: [any AttributeConvertible], isVoid: Bool, content: () -> (Set<Attribute>, [Node])) -> NodeContent {
-    let (attrs, nodes) = content()
-    return .child(.tag(Tag(
-        name: name,
-        attributes: Set(attributes.map { $0.asAttribute }).union(attrs),
-        children: nodes,
-        isVoidElement: isVoid
-    )))
-}
-
-
-public func tag(
-    _ name: String,
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element(name, attributes: attributes, isVoid: false, content: content)
-}
-
-
-public func html(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("html", attributes: attributes, isVoid: false, content: content)
-}
+public let html = HTMLElement<GlobalElementAttribute>("html")
  
 
-public func base(
-    _ attributes: BaseElementAttribute...,
-    @NodeContentBuilder<BaseElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("base", attributes: attributes, isVoid: true, content: content)
-}
+public let base = HTMLElement<BaseElementAttribute>("base", isVoid: true)
  
-public func head(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("head", attributes: attributes, isVoid: false, content: content)
-}
+public let head = HTMLElement<GlobalElementAttribute>("head")
  
-public func link(
-    _ attributes: LinkElementAttribute...,
-    @NodeContentBuilder<LinkElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("link", attributes: attributes, isVoid: true, content: content)
-}
+public let link = HTMLElement<LinkElementAttribute>("link", isVoid: true)
  
-public func meta(
-    _ attributes: MetaElementAttribute...,
-    @NodeContentBuilder<MetaElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("meta", attributes: attributes, isVoid: true, content: content)
-}
+public let meta = HTMLElement<MetaElementAttribute>("meta", isVoid: true)
  
-public func style(
-    _ attributes: StyleElementAttribute...,
-    @NodeContentBuilder<StyleElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("style", attributes: attributes, isVoid: false, content: content)
-}
+public let style = HTMLElement<StyleElementAttribute>("style")
  
-public func title(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("title", attributes: attributes, isVoid: false, content: content)
-}
+public let title = HTMLElement<GlobalElementAttribute>("title")
  
 
-public func body(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("body", attributes: attributes, isVoid: false, content: content)
-}
+public let body = HTMLElement<GlobalElementAttribute>("body")
  
 
-public func address(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("address", attributes: attributes, isVoid: false, content: content)
-}
+public let address = HTMLElement<GlobalElementAttribute>("address")
  
-public func article(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("article", attributes: attributes, isVoid: false, content: content)
-}
+public let article = HTMLElement<GlobalElementAttribute>("article")
  
-public func aside(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("aside", attributes: attributes, isVoid: false, content: content)
-}
+public let aside = HTMLElement<GlobalElementAttribute>("aside")
  
-public func footer(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("footer", attributes: attributes, isVoid: false, content: content)
-}
+public let footer = HTMLElement<GlobalElementAttribute>("footer")
  
-public func header(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("header", attributes: attributes, isVoid: false, content: content)
-}
+public let header = HTMLElement<GlobalElementAttribute>("header")
  
-public func h1(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("h1", attributes: attributes, isVoid: false, content: content)
-}
+public let h1 = HTMLElement<GlobalElementAttribute>("h1")
  
-public func h2(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("h2", attributes: attributes, isVoid: false, content: content)
-}
+public let h2 = HTMLElement<GlobalElementAttribute>("h2")
  
-public func h3(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("h3", attributes: attributes, isVoid: false, content: content)
-}
+public let h3 = HTMLElement<GlobalElementAttribute>("h3")
  
-public func h4(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("h4", attributes: attributes, isVoid: false, content: content)
-}
+public let h4 = HTMLElement<GlobalElementAttribute>("h4")
  
-public func h5(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("h5", attributes: attributes, isVoid: false, content: content)
-}
+public let h5 = HTMLElement<GlobalElementAttribute>("h5")
  
-public func h6(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("h6", attributes: attributes, isVoid: false, content: content)
-}
+public let h6 = HTMLElement<GlobalElementAttribute>("h6")
  
-public func hgroup(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("hgroup", attributes: attributes, isVoid: false, content: content)
-}
+public let hgroup = HTMLElement<GlobalElementAttribute>("hgroup")
  
-public func main(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("main", attributes: attributes, isVoid: false, content: content)
-}
+public let main = HTMLElement<GlobalElementAttribute>("main")
  
-public func nav(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("nav", attributes: attributes, isVoid: false, content: content)
-}
+public let nav = HTMLElement<GlobalElementAttribute>("nav")
  
-public func section(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("section", attributes: attributes, isVoid: false, content: content)
-}
+public let section = HTMLElement<GlobalElementAttribute>("section")
  
-public func search(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("search", attributes: attributes, isVoid: false, content: content)
-}
+public let search = HTMLElement<GlobalElementAttribute>("search")
  
 
-public func blockquote(
-    _ attributes: BlockquoteElementAttribute...,
-    @NodeContentBuilder<BlockquoteElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("blockquote", attributes: attributes, isVoid: false, content: content)
-}
+public let blockquote = HTMLElement<BlockquoteElementAttribute>("blockquote")
  
-public func dd(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("dd", attributes: attributes, isVoid: false, content: content)
-}
+public let dd = HTMLElement<GlobalElementAttribute>("dd")
  
-public func div(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("div", attributes: attributes, isVoid: false, content: content)
-}
+public let div = HTMLElement<GlobalElementAttribute>("div")
  
-public func dl(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("dl", attributes: attributes, isVoid: false, content: content)
-}
+public let dl = HTMLElement<GlobalElementAttribute>("dl")
  
-public func dt(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("dt", attributes: attributes, isVoid: false, content: content)
-}
+public let dt = HTMLElement<GlobalElementAttribute>("dt")
  
 
-public func figcaption(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("figcaption", attributes: attributes, isVoid: false, content: content)
-}
+public let figcaption = HTMLElement<GlobalElementAttribute>("figcaption")
  
-public func figure(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("figure", attributes: attributes, isVoid: false, content: content)
-}
+public let figure = HTMLElement<GlobalElementAttribute>("figure")
  
-public func hr(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("hr", attributes: attributes, isVoid: true, content: content)
-}
+public let hr = HTMLElement<GlobalElementAttribute>("hr", isVoid: true)
  
-public func li(
-    _ attributes: LiElementAttribute...,
-    @NodeContentBuilder<LiElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("li", attributes: attributes, isVoid: false, content: content)
-}
+public let li = HTMLElement<LiElementAttribute>("li")
  
-public func menu(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("menu", attributes: attributes, isVoid: false, content: content)
-}
+public let menu = HTMLElement<GlobalElementAttribute>("menu")
  
-public func ol(
-    _ attributes: OlElementAttribute...,
-    @NodeContentBuilder<OlElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("ol", attributes: attributes, isVoid: false, content: content)
-}
+public let ol = HTMLElement<OlElementAttribute>("ol")
  
-public func p(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("p", attributes: attributes, isVoid: false, content: content)
-}
+public let p = HTMLElement<GlobalElementAttribute>("p")
  
-public func pre(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("pre", attributes: attributes, isVoid: false, content: content)
-}
+public let pre = HTMLElement<GlobalElementAttribute>("pre")
  
-public func ul(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("ul", attributes: attributes, isVoid: false, content: content)
-}
+public let ul = HTMLElement<GlobalElementAttribute>("ul")
  
 
-public func a(
-    _ attributes: AElementAttribute...,
-    @NodeContentBuilder<AElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("a", attributes: attributes, isVoid: false, content: content)
-}
+public let a = HTMLElement<AElementAttribute>("a")
  
-public func abbr(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("abbr", attributes: attributes, isVoid: false, content: content)
-}
+public let abbr = HTMLElement<GlobalElementAttribute>("abbr")
  
-public func b(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("b", attributes: attributes, isVoid: false, content: content)
-}
+public let b = HTMLElement<GlobalElementAttribute>("b")
  
-public func bdi(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("bdi", attributes: attributes, isVoid: false, content: content)
-}
+public let bdi = HTMLElement<GlobalElementAttribute>("bdi")
  
-public func bdo(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("bdo", attributes: attributes, isVoid: false, content: content)
-}
+public let bdo = HTMLElement<GlobalElementAttribute>("bdo")
  
-public func br(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("br", attributes: attributes, isVoid: true, content: content)
-}
+public let br = HTMLElement<GlobalElementAttribute>("br", isVoid: true)
  
-public func cite(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("cite", attributes: attributes, isVoid: false, content: content)
-}
+public let cite = HTMLElement<GlobalElementAttribute>("cite")
  
-public func code(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("code", attributes: attributes, isVoid: false, content: content)
-}
+public let code = HTMLElement<GlobalElementAttribute>("code")
  
-public func data(
-    _ attributes: DataElementAttribute...,
-    @NodeContentBuilder<DataElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("data", attributes: attributes, isVoid: false, content: content)
-}
+public let data = HTMLElement<DataElementAttribute>("data")
  
-public func dfn(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("dfn", attributes: attributes, isVoid: false, content: content)
-}
+public let dfn = HTMLElement<GlobalElementAttribute>("dfn")
  
-public func em(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("em", attributes: attributes, isVoid: false, content: content)
-}
+public let em = HTMLElement<GlobalElementAttribute>("em")
  
-public func i(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("i", attributes: attributes, isVoid: false, content: content)
-}
+public let i = HTMLElement<GlobalElementAttribute>("i")
  
-public func kbd(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("kbd", attributes: attributes, isVoid: false, content: content)
-}
+public let kbd = HTMLElement<GlobalElementAttribute>("kbd")
  
-public func mark(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("mark", attributes: attributes, isVoid: false, content: content)
-}
+public let mark = HTMLElement<GlobalElementAttribute>("mark")
  
-public func q(
-    _ attributes: QElementAttribute...,
-    @NodeContentBuilder<QElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("q", attributes: attributes, isVoid: false, content: content)
-}
+public let q = HTMLElement<QElementAttribute>("q")
  
-public func rp(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("rp", attributes: attributes, isVoid: false, content: content)
-}
+public let rp = HTMLElement<GlobalElementAttribute>("rp")
 
-public func rt(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("rt", attributes: attributes, isVoid: false, content: content)
-}
+public let rt = HTMLElement<GlobalElementAttribute>("rt")
  
-public func ruby(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("ruby", attributes: attributes, isVoid: false, content: content)
-}
+public let ruby = HTMLElement<GlobalElementAttribute>("ruby")
  
-public func s(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("s", attributes: attributes, isVoid: false, content: content)
-}
+public let s = HTMLElement<GlobalElementAttribute>("s")
  
-public func samp(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("samp", attributes: attributes, isVoid: false, content: content)
-}
+public let samp = HTMLElement<GlobalElementAttribute>("samp")
  
-public func small(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("small", attributes: attributes, isVoid: false, content: content)
-}
+public let small = HTMLElement<GlobalElementAttribute>("small")
  
-public func span(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("span", attributes: attributes, isVoid: false, content: content)
-}
+public let span = HTMLElement<GlobalElementAttribute>("span")
  
-public func strong(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("strong", attributes: attributes, isVoid: false, content: content)
-}
+public let strong = HTMLElement<GlobalElementAttribute>("strong")
  
-public func sub(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("sub", attributes: attributes, isVoid: false, content: content)
-}
+public let sub = HTMLElement<GlobalElementAttribute>("sub")
  
-public func sup(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("sup", attributes: attributes, isVoid: false, content: content)
-}
+public let sup = HTMLElement<GlobalElementAttribute>("sup")
  
-public func time(
-    _ attributes: TimeElementAttribute...,
-    @NodeContentBuilder<TimeElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("time", attributes: attributes, isVoid: false, content: content)
-}
+public let time = HTMLElement<TimeElementAttribute>("time")
  
-public func u(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("u", attributes: attributes, isVoid: false, content: content)
-}
+public let u = HTMLElement<GlobalElementAttribute>("u")
  
-public func `var`(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("var", attributes: attributes, isVoid: false, content: content)
-}
+public let `var` = HTMLElement<GlobalElementAttribute>("var")
 
-public func wbr(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("wbr", attributes: attributes, isVoid: true, content: content)
-}
+public let wbr = HTMLElement<GlobalElementAttribute>("wbr", isVoid: true)
  
 
-public func area(
-    _ attributes: AreaElementAttribute...,
-    @NodeContentBuilder<AreaElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("area", attributes: attributes, isVoid: true, content: content)
-}
+public let area = HTMLElement<AreaElementAttribute>("area", isVoid: true)
  
-public func audio(
-    _ attributes: AudioElementAttribute...,
-    @NodeContentBuilder<AudioElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("audio", attributes: attributes, isVoid: false, content: content)
-}
+public let audio = HTMLElement<AudioElementAttribute>("audio")
  
-public func img(
-    _ attributes: ImgElementAttribute...,
-    @NodeContentBuilder<ImgElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("img", attributes: attributes, isVoid: true, content: content)
-}
+public let img = HTMLElement<ImgElementAttribute>("img", isVoid: true)
  
-public func map(
-    _ attributes: MapElementAttribute...,
-    @NodeContentBuilder<MapElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("map", attributes: attributes, isVoid: false, content: content)
-}
+public let map = HTMLElement<MapElementAttribute>("map")
  
-public func track(
-    _ attributes: TrackElementAttribute...,
-    @NodeContentBuilder<TrackElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("track", attributes: attributes, isVoid: true, content: content)
-}
+public let track = HTMLElement<TrackElementAttribute>("track", isVoid: true)
  
-public func video(
-    _ attributes: VideoElementAttribute...,
-    @NodeContentBuilder<VideoElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("video", attributes: attributes, isVoid: false, content: content)
-}
+public let video = HTMLElement<VideoElementAttribute>("video")
  
 
-public func embed(
-    _ attributes: EmbedElementAttribute...,
-    @NodeContentBuilder<EmbedElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("embed", attributes: attributes, isVoid: true, content: content)
-}
+public let embed = HTMLElement<EmbedElementAttribute>("embed", isVoid: true)
  
-public func iframe(
-    _ attributes: IframeEmbedElementAttribute...,
-    @NodeContentBuilder<IframeEmbedElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("iframe", attributes: attributes, isVoid: false, content: content)
-}
+public let iframe = HTMLElement<IframeEmbedElementAttribute>("iframe")
  
-public func object(
-    _ attributes: ObjectEmbedElementAttribute...,
-    @NodeContentBuilder<ObjectEmbedElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("object", attributes: attributes, isVoid: false, content: content)
-}
+public let object = HTMLElement<ObjectEmbedElementAttribute>("object")
  
-public func picture(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("picture", attributes: attributes, isVoid: false, content: content)
-}
+public let picture = HTMLElement<GlobalElementAttribute>("picture")
  
-public func source(
-    _ attributes: SourceEmbedElementAttribute...,
-    @NodeContentBuilder<SourceEmbedElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("source", attributes: attributes, isVoid: true, content: content)
-}
+public let source = HTMLElement<SourceEmbedElementAttribute>("source", isVoid: true)
  
 
-public func svg(
-    _ attributes: SvgElementAttribute...,
-    @NodeContentBuilder<SvgElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("svg", attributes: attributes, isVoid: false, content: content)
-}
+public let svg = HTMLElement<SvgElementAttribute>("svg")
  
-public func math(
-    _ attributes: MathEmbedElementAttribute...,
-    @NodeContentBuilder<MathEmbedElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("math", attributes: attributes, isVoid: false, content: content)
-}
+public let math = HTMLElement<MathEmbedElementAttribute>("math")
  
 
-public func canvas(
-    _ attributes: CanvasElementAttribute...,
-    @NodeContentBuilder<CanvasElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("canvas", attributes: attributes, isVoid: false, content: content)
-}
+public let canvas = HTMLElement<CanvasElementAttribute>("canvas")
  
-public func noscript(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("noscript", attributes: attributes, isVoid: false, content: content)
-}
+public let noscript = HTMLElement<GlobalElementAttribute>("noscript")
  
-public func script(
-    _ attributes: ScriptElementAttribute...,
-    @NodeContentBuilder<ScriptElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("script", attributes: attributes, isVoid: false, content: content)
-}
+public let script = HTMLElement<ScriptElementAttribute>("script")
  
 
-public func del(
-    _ attributes: DelElementAttribute...,
-    @NodeContentBuilder<DelElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("del", attributes: attributes, isVoid: false, content: content)
-}
+public let del = HTMLElement<DelElementAttribute>("del")
  
-public func ins(
-    _ attributes: InsElementAttribute...,
-    @NodeContentBuilder<InsElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("ins", attributes: attributes, isVoid: false, content: content)
-}
+public let ins = HTMLElement<InsElementAttribute>("ins")
  
 
-public func caption(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("caption", attributes: attributes, isVoid: false, content: content)
-}
+public let caption = HTMLElement<GlobalElementAttribute>("caption")
  
-public func col(
-    _ attributes: ColElementAttribute...,
-    @NodeContentBuilder<ColElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("col", attributes: attributes, isVoid: true, content: content)
-}
+public let col = HTMLElement<ColElementAttribute>("col", isVoid: true)
  
-public func colgroup(
-    _ attributes: ColgroupElementAttribute...,
-    @NodeContentBuilder<ColgroupElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("colgroup", attributes: attributes, isVoid: false, content: content)
-}
+public let colgroup = HTMLElement<ColgroupElementAttribute>("colgroup")
  
-public func table(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("table", attributes: attributes, isVoid: false, content: content)
-}
+public let table = HTMLElement<GlobalElementAttribute>("table")
  
-public func tbody(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("tbody", attributes: attributes, isVoid: false, content: content)
-}
+public let tbody = HTMLElement<GlobalElementAttribute>("tbody")
  
-public func td(
-    _ attributes: TdElementAttribute...,
-    @NodeContentBuilder<TdElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("td", attributes: attributes, isVoid: false, content: content)
-}
+public let td = HTMLElement<TdElementAttribute>("td")
  
-public func tfoot(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("tfoot", attributes: attributes, isVoid: false, content: content)
-}
+public let tfoot = HTMLElement<GlobalElementAttribute>("tfoot")
  
-public func th(
-    _ attributes: ThElementAttribute...,
-    @NodeContentBuilder<ThElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("th", attributes: attributes, isVoid: false, content: content)
-}
+public let th = HTMLElement<ThElementAttribute>("th")
  
-public func thead(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("thead", attributes: attributes, isVoid: false, content: content)
-}
+public let thead = HTMLElement<GlobalElementAttribute>("thead")
  
-public func tr(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("tr", attributes: attributes, isVoid: false, content: content)
-}
+public let tr = HTMLElement<GlobalElementAttribute>("tr")
  
 
-public func button(
-    _ attributes: ButtonElementAttribute...,
-    @NodeContentBuilder<ButtonElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("button", attributes: attributes, isVoid: false, content: content)
-}
+public let button = HTMLElement<ButtonElementAttribute>("button")
  
-public func datalist(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("datalist", attributes: attributes, isVoid: false, content: content)
-}
+public let datalist = HTMLElement<GlobalElementAttribute>("datalist")
  
-public func fieldset(
-    _ attributes: FieldsetElementAttribute...,
-    @NodeContentBuilder<FieldsetElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("fieldset", attributes: attributes, isVoid: false, content: content)
-}
+public let fieldset = HTMLElement<FieldsetElementAttribute>("fieldset")
  
-public func form(
-    _ attributes: FormElementAttribute...,
-    @NodeContentBuilder<FormElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("form", attributes: attributes, isVoid: false, content: content)
-}
+public let form = HTMLElement<FormElementAttribute>("form")
  
-public func input(
-    _ attributes: InputElementAttribute...,
-    @NodeContentBuilder<InputElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("input", attributes: attributes, isVoid: true, content: content)
-}
+public let input = HTMLElement<InputElementAttribute>("input", isVoid: true)
  
-public func label(
-    _ attributes: LabelElementAttribute...,
-    @NodeContentBuilder<LabelElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("label", attributes: attributes, isVoid: false, content: content)
-}
+public let label = HTMLElement<LabelElementAttribute>("label")
  
-public func legend(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("legend", attributes: attributes, isVoid: false, content: content)
-}
+public let legend = HTMLElement<GlobalElementAttribute>("legend")
  
-public func meter(
-    _ attributes: MeterElementAttribute...,
-    @NodeContentBuilder<MeterElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("meter", attributes: attributes, isVoid: false, content: content)
-}
+public let meter = HTMLElement<MeterElementAttribute>("meter")
  
-public func optgroup(
-    _ attributes: OptgroupElementAttribute...,
-    @NodeContentBuilder<OptgroupElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("optgroup", attributes: attributes, isVoid: false, content: content)
-}
+public let optgroup = HTMLElement<OptgroupElementAttribute>("optgroup")
  
-public func option(
-    _ attributes: OptionElementAttribute...,
-    @NodeContentBuilder<OptionElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("option", attributes: attributes, isVoid: false, content: content)
-}
+public let option = HTMLElement<OptionElementAttribute>("option")
  
-public func output(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("output", attributes: attributes, isVoid: false, content: content)
-}
+public let output = HTMLElement<GlobalElementAttribute>("output")
  
-public func progress(
-    _ attributes: ProgressElementAttribute...,
-    @NodeContentBuilder<ProgressElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("progress", attributes: attributes, isVoid: false, content: content)
-}
+public let progress = HTMLElement<ProgressElementAttribute>("progress")
  
-public func select(
-    _ attributes: SelectElementAttribute...,
-    @NodeContentBuilder<SelectElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("select", attributes: attributes, isVoid: false, content: content)
-}
+public let select = HTMLElement<SelectElementAttribute>("select")
  
-public func selectedcontent(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("selectedcontent", attributes: attributes, isVoid: false, content: content)
-}
+public let selectedcontent = HTMLElement<GlobalElementAttribute>("selectedcontent")
  
-public func textarea(
-    _ attributes: TextareaElementAttribute...,
-    @NodeContentBuilder<TextareaElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("textarea", attributes: attributes, isVoid: false, content: content)
-}
+public let textarea = HTMLElement<TextareaElementAttribute>("textarea")
  
 
-public func details(
-    _ attributes: DetailsElementAttribute...,
-    @NodeContentBuilder<DetailsElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("details", attributes: attributes, isVoid: false, content: content)
-}
+public let details = HTMLElement<DetailsElementAttribute>("details")
  
-public func dialog(
-    _ attributes: DialogElementAttribute...,
-    @NodeContentBuilder<DialogElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("dialog", attributes: attributes, isVoid: false, content: content)
-}
+public let dialog = HTMLElement<DialogElementAttribute>("dialog")
  
-public func geolocation(
-    _ attributes: GeolocationElementAttribute...,
-    @NodeContentBuilder<GeolocationElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("geolocation", attributes: attributes, isVoid: false, content: content)
-}
+public let geolocation = HTMLElement<GeolocationElementAttribute>("geolocation")
  
-public func summary(
-    _ attributes: GlobalElementAttribute...,
-    @NodeContentBuilder<GlobalElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("summary", attributes: attributes, isVoid: false, content: content)
-}
+public let summary = HTMLElement<GlobalElementAttribute>("summary")
  
 
-public func slot(
-    _ attributes: SlotElementAttribute...,
-    @NodeContentBuilder<SlotElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("slot", attributes: attributes, isVoid: false, content: content)
-}
+public let slot = HTMLElement<SlotElementAttribute>("slot")
  
-public func template(
-    _ attributes: TemplateElementAttribute...,
-    @NodeContentBuilder<TemplateElementAttribute> content: (() -> (Set<Attribute>, [Node])) = {([], [])}
-) -> NodeContent {
-    element("template", attributes: attributes, isVoid: false, content: content)
-}
+public let template = HTMLElement<TemplateElementAttribute>("template")

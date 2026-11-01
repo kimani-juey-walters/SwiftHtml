@@ -1,9 +1,5 @@
-public enum NodeContent: CustomStringConvertible {
+public enum NodeContent {
     case attribute(Attribute)
     case attributes(Set<Attribute>)
     case child(Node)
-    
-    public var description: String {
-        if case .child(let node) = self { "<!DOCTYPE html>\n\(node)" } else { "" }
-    }
 }

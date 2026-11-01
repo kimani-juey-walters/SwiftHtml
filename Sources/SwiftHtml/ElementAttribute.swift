@@ -1,9 +1,6 @@
 import HtmlElementAttribute
 
 
-public typealias PlaceholderElementAttribute = GlobalElementAttribute
-
-
 @HTMLElementAttribute
 public enum GlobalElementAttribute: Sendable, AttributeConvertible, Hashable {}
 
