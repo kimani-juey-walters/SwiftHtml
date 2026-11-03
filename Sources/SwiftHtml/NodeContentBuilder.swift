@@ -4,8 +4,11 @@ public struct NodeContentBuilder<T: Hashable & AttributeConvertible> {
         components
     }
     
+    public static func buildExpression(_ expression: NodeContent) -> NodeContentConvertible {
+        expression
+    }
     public static func buildExpression(_ expression: Tag) -> NodeContentConvertible {
-        NodeContent.child(.tag(expression))
+        expression.asNodeContent
     }
     
     public static func buildExpression(_ expression: String) -> NodeContentConvertible {

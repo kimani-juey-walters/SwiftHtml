@@ -1,4 +1,4 @@
-protocol NodeConvertible {
+public protocol NodeConvertible {
     var asNode: Node { get }
 }
 
