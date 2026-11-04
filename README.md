@@ -8,23 +8,25 @@ let result = html(.lang("en")) {
     head {
         meta(.charset("utf-8"))
         title <| "Example Html"
-        style <|
-            """
-            p { background-color: blue; }
-            """
+        
+        """
+        p { background-color: blue; }
+        """
+        |> style
         
         link(.rel("preconnect"), .href("https://site.com/page"), .crossorigin)
         script(.src("index.js"))
     }
+    
     body <| div(.class("wrapper")) {
         section {
             [.id("about"), .class("about")]
             
             h2 {
-                span <| "##"
+                "##" |> span
                 "About Section"
             }
-            p <| "The about section."
+            "The about section." |> p
         }
         section {
             .id("rules");
@@ -36,6 +38,7 @@ let result = html(.lang("en")) {
             }
             p <| "The rules section."
         }
+        "Home page" |> a(.href("https://example.com/"))
         a(.href("https://example.com/about")) <| "About page"
     }
 }
@@ -71,6 +74,7 @@ Produces the following result
                 </h2>
                 <p>The rules section.</p>
             </section>
+            <a href="https://example.com/">Home page</a>
             <a href="https://example.com/about">About page</a>
         </div>
     </body>

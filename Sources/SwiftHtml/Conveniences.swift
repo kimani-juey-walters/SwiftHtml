@@ -5,10 +5,16 @@ public func <| <T>(lhs: HTMLElement<T>, rhs: NodeContentConvertible) -> Tag {
 }
 
 public func <| (lhs: Tag, rhs: NodeConvertible) -> Tag {
-    Tag(
-        name: lhs.name,
-        attributes: lhs.attributes,
-        children: lhs.children + [rhs.asNode],
-        isVoidElement: lhs.isVoidElement,
-    )
+    lhs.with(children: lhs.children + [rhs.asNode])
+}
+
+
+infix operator |>
+
+public func |> <T>(lhs: String, rhs: HTMLElement<T>) -> Tag {
+    rhs { lhs }
+}
+
+public func |> (lhs: String, rhs: Tag) -> Tag {
+    rhs.with(children: rhs.children + [lhs.asNode])
 }

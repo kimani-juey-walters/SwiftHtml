@@ -4,6 +4,20 @@ public struct Tag: TextOutputStreamable {
     let children: [Node]
     let isVoidElement: Bool
    
+    public func with(
+        name: String? = nil,
+        attributes: Set<Attribute>? = nil,
+        children: [Node]? = nil,
+        isVoidElement: Bool? = nil
+    ) -> Tag {
+        Tag(
+            name: name ?? self.name,
+            attributes: attributes ?? self.attributes,
+            children: children ?? self.children,
+            isVoidElement: isVoidElement ?? self.isVoidElement
+        )
+    }
+    
     public func write(to target: inout some TextOutputStream) {
         write(to: &target, dept: 0)
     }
