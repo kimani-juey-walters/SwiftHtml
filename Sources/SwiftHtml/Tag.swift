@@ -32,7 +32,7 @@ public struct Tag: TextOutputStreamable {
 
         for attr in attributes.sorted(by: { $0.key < $1.key }) {
             let attr = switch attr {
-            case .string(let k, let v): #" \#(k)="\#(v)""#
+            case .string(let k, let v): #" \#(k)="\#(v.split(separator: "\n").joined())""#
             case .bool(let k): " \(k)"
             }
             target.write(attr)

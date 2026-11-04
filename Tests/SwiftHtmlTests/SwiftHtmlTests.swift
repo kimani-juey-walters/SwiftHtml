@@ -197,7 +197,7 @@ import Foundation
                     section {
                         [.id("about"), .class("about")]
                         
-                        h2 {
+                        h2(.style("color: blue;")) {
                             "##" |> span
                             "About Section"
                         }
@@ -208,6 +208,12 @@ import Foundation
                         .class("rules");
                         
                         h2 {
+                            """
+                            color: blue;
+                            background: red;
+                            """
+                            |> styleAttribute
+                            
                             span <| "##"
                             "Rules Section"
                         }
@@ -230,14 +236,14 @@ import Foundation
                 <body>
                     <div class="wrapper">
                         <section class="about" id="about">
-                            <h2>
+                            <h2 style="color: blue;">
                                 <span>##</span>
                                 About Section
                             </h2>
                             <p>The about section.</p>
                         </section>
                         <section class="rules" id="rules">
-                            <h2>
+                            <h2 style="color: blue;background: red;">
                                 <span>##</span>
                                 Rules Section
                             </h2>

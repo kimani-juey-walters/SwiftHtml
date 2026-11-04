@@ -18,3 +18,12 @@ public func |> <T>(lhs: String, rhs: HTMLElement<T>) -> Tag {
 public func |> (lhs: String, rhs: Tag) -> Tag {
     rhs.with(children: rhs.children + [lhs.asNode])
 }
+
+public func |> (lhs: String, rhs: (String) -> Attribute) -> Attribute {
+    rhs(lhs)
+}
+
+
+public func styleAttribute(_ s: String) -> Attribute {
+    .string(key: "style", value: s)
+}

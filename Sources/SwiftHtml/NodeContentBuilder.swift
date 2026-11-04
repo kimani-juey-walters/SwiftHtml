@@ -15,6 +15,10 @@ public struct NodeContentBuilder<T: Hashable & AttributeConvertible> {
         expression.asNodeContent
     }
     
+    public static func buildExpression(_ expression: Attribute) -> some NodeContentConvertible {
+        NodeContent.attribute(expression)
+    }
+
     public static func buildExpression(_ expression: T) -> some NodeContentConvertible {
         NodeContent.attribute(expression.asAttribute)
     }
