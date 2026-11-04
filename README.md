@@ -37,7 +37,7 @@ let result = html(.lang("en")) {
                 color: blue;
                 background: red;
                 """
-                |> styleAttribute
+                |> .style
                 
                 span <| "##"
                 "Rules Section"
