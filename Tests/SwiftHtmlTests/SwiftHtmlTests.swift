@@ -182,8 +182,8 @@ import Foundation
             html(.lang("en")) {
                 head {
                     meta(.charset("utf-8"))
-                    title >>> "Example Html"
-                    style >>>
+                    title <| "Example Html"
+                    style <|
                         """
                         p { background-color: blue; }
                         """
@@ -192,27 +192,27 @@ import Foundation
                     script(.src("index.js"))
                 }
                 
-                body >>> div(.class("wrapper")) {
+                body <| div(.class("wrapper")) {
                     section {
                         [.id("about"), .class("about")]
                         
                         h2 {
-                            span >>> "##"
+                            span <| "##"
                             "About Section"
                         }
-                        p >>> "The about section."
+                        p <| "The about section."
                     }
                     section {
                         .id("rules");
                         .class("rules");
                         
                         h2 {
-                            span >>> "##"
+                            span <| "##"
                             "Rules Section"
                         }
-                        p >>> "The rules section."
+                        p <| "The rules section."
                     }
-                    a(.href("https://example.com/about")) >>> "About page"
+                    a(.href("https://example.com/about")) <| "About page"
                 }
             },
             """

@@ -1,10 +1,10 @@
-infix operator >>>
+infix operator <|
 
-public func >>> <T>(lhs: HTMLElement<T>, rhs: NodeContentConvertible) -> Tag {
+public func <| <T>(lhs: HTMLElement<T>, rhs: NodeContentConvertible) -> Tag {
     lhs { rhs.asNodeContent }
 }
 
-public func >>> (lhs: Tag, rhs: NodeConvertible) -> Tag {
+public func <| (lhs: Tag, rhs: NodeConvertible) -> Tag {
     Tag(
         name: lhs.name,
         attributes: lhs.attributes,
