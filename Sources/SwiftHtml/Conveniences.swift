@@ -1,4 +1,8 @@
-infix operator <|
+precedencegroup BackwardApplication {
+    associativity: right
+}
+
+infix operator <|: BackwardApplication
 
 public func <| <T>(lhs: HTMLElement<T>, rhs: NodeContentConvertible) -> Tag {
     lhs { rhs.asNodeContent }
@@ -9,13 +13,17 @@ public func <| (lhs: Tag, rhs: NodeConvertible) -> Tag {
 }
 
 
-infix operator |>
-
-public func |> <T>(lhs: String, rhs: HTMLElement<T>) -> Tag {
-    rhs { lhs }
+precedencegroup ForwardApplication {
+    associativity: left
 }
 
-public func |> (lhs: String, rhs: Tag) -> Tag {
+infix operator |>: ForwardApplication
+
+public func |> <T>(lhs: NodeContentConvertible, rhs: HTMLElement<T>) -> Tag {
+    rhs { lhs.asNodeContent }
+}
+
+public func |> (lhs: NodeConvertible, rhs: Tag) -> Tag {
     rhs.with(children: rhs.children + [lhs.asNode])
 }
 

@@ -255,6 +255,26 @@ import Foundation
                 </body>
             </html>
             """
+        ),
+        (
+            div <| span <| p <| "Hello World",
+            """
+            <div>
+                <span>
+                    <p>Hello World</p>
+                </span>
+            </div>
+            """
+        ),
+        (
+            "Hello World" |> p |> span |> div,
+            """
+            <div>
+                <span>
+                    <p>Hello World</p>
+                </span>
+            </div>
+            """
         )
     ]
     
