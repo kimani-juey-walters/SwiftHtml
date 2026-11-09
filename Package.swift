@@ -26,6 +26,7 @@ let package = Package(
         .testTarget(
             name: "MacroTests",
             dependencies: [
+                "EnumCaseDescriptionMacro",
                 "HtmlElementAttributeMacro",
                 .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax"),
             ],
